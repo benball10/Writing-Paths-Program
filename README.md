@@ -1,5 +1,3 @@
-# Writing-Paths-Program
-
 # Program that returns the path of each segment
 
 import numpy as np
@@ -15,7 +13,7 @@ row_count = df.shape[0]
 col_count = df.shape[1]
 
 # Add new column of length row_count
-new_array = np.array(["Test", "Test"])
+new_array = np.array(["Test", "Test"], np.dtype(('U', 500)))
 new_array.resize(row_count, 1)
 
 # Looping through entire table
@@ -32,15 +30,11 @@ while i < row_count:
                 a += 1
             break
         j += 1
+        #new_array[i] = df.iloc[i][j - 1] ??(this is from names program)
     i += 1
 
-#k = 0
-#while k < row_count:
-#    if new_array[k] == "":
-#        new_array[k] = ...while loop?
-
 # Adding the column of names to the end of the original table
-df['new_col'] = new_array
+df['Path of Segment'] = new_array
 
 print(df)
 
